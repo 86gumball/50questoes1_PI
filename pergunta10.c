@@ -1,4 +1,3 @@
-//#include <stdio.h>
 #include <string.h>
 
 char *mystrstr (char s1[], char s2[]){
@@ -27,10 +26,3 @@ char *mystrstr (char s1[], char s2[]){
 //"
 //        obtained NULL
 //9 testes correctos
-
-//int main(){
-//    char s1[] = "abc";
-//    char s2[] = "b";
-//    printf("%s\n", mystrstr(s1, s2));
-//	return 0;
-//}

@@ -1,5 +1,3 @@
-//#include <stdio.h>
-
 int trailingZ (unsigned int n){
     int r = 0;
     if (n == 0){
@@ -15,11 +13,3 @@ int trailingZ (unsigned int n){
     }
     return r;
 }
-
-//int main(){
-//    unsigned int input;
-//    printf("Introduza um número: ");
-//    scanf("%d",&input);
-//    printf("%d\n", trailingZ(input));
-//    return 0;
-//}
