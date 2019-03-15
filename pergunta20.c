@@ -1,25 +1,12 @@
-#include <stdio.h>
+#include <ctype.h>
 
-//ERRADO
-int contaPal (char s[]){
-	int palavras = 0;
+int contaPal (char s[]) {
 	int i;
-	for (i = 0; s[i] == ' '; i++){
-		if (s[i] == '\0'){
-			return 0;
-		}
-	}
-	for ( ; s[i] != '\0'; i++){
-		if (s[i] != ' ' && s[i+1] == ' '){
+	int palavras = 0;
+	for (i = 0; s[i] != '\0'; i++){
+		if (!(isspace(s[i])) && (isspace(s[i+1]) || s[i+1] == '\0')){
 			palavras++;
 		}
 	}
-	if (s[i+1] == '\0'){
-		palavras++;
-	}
-    return palavras;
-}
-
-int main(){
-	return 0;
+	return palavras;
 }
