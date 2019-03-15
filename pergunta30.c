@@ -1,19 +1,19 @@
 int menosFreq (int v[], int N){
-	int count = 1;
+	int buffer;
+	int min = 1;
+	int minOutput = v[0];
 	int i;
-	int min = 0;
-	for (i = 0; i + 1 < N; i++){
-		if (v[i] = v[i+1]){
-			min++;
+	for (i = 0; v[i] == v[i+1] && i < N; i++, min++);
+	for (i = i + 1, buffer = 1; i < N; i++){
+		if (v[i] == v[i+1]){
+			buffer++;
 		} else {
-			break;
+			if (buffer < min){
+				min = buffer;
+				minOutput = v[i];
+			}
+			buffer = 1;
 		}
 	}
-	for (i = 0; i + 1 < N; i++){
-		if (v[i] = v[i+1]){
-			count++;
-		} else {
-			count = 0;
-		}
-	}
+	return minOutput;
 }
