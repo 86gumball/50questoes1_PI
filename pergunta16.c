@@ -1,31 +1,25 @@
-#include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-//ERRADO
 int difConsecutivos (char s[]){
-	if (s[0] == '\0'){
-		return 0;
-	}
-	int max = 1;
-	int buffer = 1;
-	int i;
+	int i, j;
+	int max = 0;
+	int buffer = 0;
+	int ascii[127] = {0};
 	for (i = 0; s[i] != '\0'; i++){
-		if (s[i] != s[i+1]){
-			if (isalpha(s[i+1])){
+		for (j = i; s[j] != '\0'; j++){
+			if (ascii[s[j]] == 0){
+				ascii[s[j]]++;
 				buffer++;
+			} else {
+				memset(ascii, 0, sizeof(ascii));
+				buffer = 0;
 			}
-		} else {
-			if (buffer > max){
+			if (buffer > max) {
 				max = buffer;
 			}
-			buffer = 1;
+			if (buffer == 0) break;
 		}
-	}	
+		buffer = 0;
+	}
 	return max;   
-}
-
-int main(){
-	char s[] = "abcaa";
-	printf("%d\n", difConsecutivos(s));
-	return 0;
 }
