@@ -1,62 +1,27 @@
-//#include <stdio.h>
-#include <string.h>
-
-int isVowel (char v){
-	switch (v){
-		case 'a':
-			return 1;
-			break;
-		case 'e':
-			return 1;
-			break;
-		case 'i':
-			return 1;
-			break;
-		case 'o':
-			return 1;
-			break;
-		case 'u':
-			return 1;
-			break;
-		case 'A':
-			return 1;
-			break;
-		case 'E':
-			return 1;
-			break;
-		case 'I':
-			return 1;
-			break;
-		case 'O':
-			return 1;
-			break;
-		case 'U':
-			return 1;
-			break;
-		default:
-			return 0;
-			break;
+int evogal (char n) {
+	if (n != 'A' &&
+		n != 'E' &&
+		n != 'I' &&
+		n != 'O' &&
+		n != 'U' &&
+		n != 'a' &&
+		n != 'e' &&
+		n != 'i' &&
+		n != 'o' &&
+		n != 'u') {
+		return 0;
+	} else {
+		return 1;
 	}
 }
 
 void strnoV (char s[]){
-	int i, j;
-	char copy[strlen(s)];
-	strcpy(copy, s);
-	for (i = 0, j = 0; copy[i] != '\0'; i++){
-		if (!(isVowel(copy[i]))){
-			s[j] = copy[i];
-			j++;
+	int read, write;
+	for (read = 0, write = 0; s[read] != '\0'; read++){
+		if (evogal(s[read]) == 0){
+			s[write] = s[read];
+			write++;
 		}
 	}
-	s[j] = '\0';
+	s[write] = '\0';
 }
-
-//int main(){
-//	char s1[256];
-//	printf("Introduza a string s1(<256):\n");
-//	fgets(s1, 256, stdin);
-//	strnoV(s1);
-//	printf("%s\n", s1);
-//	return 0;
-//}
